@@ -13,6 +13,6 @@ class TestController extends Controller
 {
     public function index()
     {
-        dd(request()->all());
+        return view('test.index');
     }
 }
