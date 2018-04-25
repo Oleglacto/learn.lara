@@ -22,6 +22,7 @@
 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary align-self-center">Войти</button>
+                <a href="/password/reset">Забыли пароль?</a>
             </div>
 
             <div class="form-group">
