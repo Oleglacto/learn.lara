@@ -16,4 +16,6 @@ Route::post('/login', 'Auth\SessionsController@store');
 
 Route::get('/logout', 'Auth\SessionsController@destroy');
 
+Route::get('/second', 'SecondController@index');
+
 
