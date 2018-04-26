@@ -21,6 +21,11 @@
             </div>
 
             <div class="form-group">
+                <label for="email">Телефон</label>
+                <input type="tel" name="phone" id="phone" class="form-control" placeholder="">
+            </div>
+
+            <div class="form-group">
                 <label for="password">Пароль</label>
                 <input type="password" name="password" id="password" class="form-control" required>
             </div>

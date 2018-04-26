@@ -37,6 +37,7 @@ class Phone implements Rule
             $this->errorMessage = 'Телефон введен верно?';
             return false;
         }
+        return true;
     }
 
     /**
