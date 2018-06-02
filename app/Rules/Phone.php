@@ -17,6 +17,10 @@ class Phone implements Rule
         //
     }
 
+    public function validation($attribute, $value)
+    {
+
+    }
     /**
      * Determine if the validation rule passes.
      *
@@ -64,6 +68,7 @@ class Phone implements Rule
         if($this->errorMessage != '') {
             return $this->errorMessage;
         }
+
         return 'Введите телефон, пожалуйста';
     }
 }

@@ -9,7 +9,7 @@
 namespace App\Http\Controllers;
 
 
-class TestController extends Controller
+class SiteController extends Controller
 {
 
     public function __construct()
@@ -19,6 +19,6 @@ class TestController extends Controller
 
     public function index()
     {
-        return view('test.index');
+        return view('site.index');
     }
 }

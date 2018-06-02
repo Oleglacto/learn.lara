@@ -4,17 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Rules\Phone;
-use App\User;
-use http\Env\Request;
-use Illuminate\Support\Facades\Crypt;
+use App\Models\User;
 
-/*
- * TODO
- * П.с. лучше передавать кастомные валидаторы с челвоеческми названиями типо phone_number
- * Переделать валидацию в адекватный вид
- */
-
-class RegistrationController extends Controller
+class RegisterController extends Controller
 {
 
     /**
@@ -32,27 +24,20 @@ class RegistrationController extends Controller
      */
     public function store()
     {
-//        dd(empty(request('phone')));
-        $rules = [
+        $this->validate(request(), [
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'phone' => ['nullable','unique:users', new Phone],
+            'phone' => ['nullable', 'unique:users', new Phone()],
             'password' => 'required|confirmed'
-        ];
-        $create = [
+        ]);
+        $user = User::create([
             'name' => request('name'),
             'email' => request('email'),
+            'phone' => request('phone'),
             'password' => bcrypt(request('password'))
-        ];
-        if(!empty(request('phone'))){
-            $rules['phone'] = ['nullable','unique:users', new Phone];
-            $create['phone'] = request('phone');
-        }
-
-        $this->validate(request(), $rules);
-        $user = User::create($create);
-
+        ]);
         auth()->login($user);
+
         return redirect()->home();
     }
 }

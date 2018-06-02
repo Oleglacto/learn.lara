@@ -5,10 +5,20 @@
 // Variables
 @import "variables";
 
+@import "admin";
+
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+//@import '~bootstrap/scss/bootstrap';
 
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+.dropdown-menu{
+  margin-top: 0 !important;
+  top: 100%;
+  left: 96px;
+}
+.small-fixs{
+  top: 0 !important;
 }

@@ -12,7 +12,7 @@
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="" required>
+                <input type="email" name="email" id="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="" required>
             </div>
 
             <div class="form-group">

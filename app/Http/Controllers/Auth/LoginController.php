@@ -13,7 +13,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Request;
 
-class SessionsController extends Controller
+class LoginController extends Controller
 {
 
     public function __construct()

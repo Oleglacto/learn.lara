@@ -12,17 +12,17 @@
 
             <div class="form-group">
                 <label for="name">Имя пользователя</label>
-                <input type="text" name="name" id="name" class="form-control" placeholder="" required>
+                <input type="text" name="name" id="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') }}" placeholder="" required>
             </div>
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="" required>
+                <input type="email" name="email" id="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="" value="{{ old('email') }}" required>
             </div>
 
             <div class="form-group">
                 <label for="email">Телефон</label>
-                <input type="tel" name="phone" id="phone" class="form-control" placeholder="">
+                <input type="tel" name="phone" id="phone" class="form-control {{ $errors->has('phone') ? ' is-invalid' : '' }}" value="{{ old('phone') }}" placeholder="">
             </div>
 
             <div class="form-group">
