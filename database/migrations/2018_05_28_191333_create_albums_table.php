@@ -17,7 +17,7 @@ class CreateAlbumsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('cake_id')->unsigned();
             $table->string('name');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('cover_image');
             $table->string('cover_image_original');
             $table->timestamps();
