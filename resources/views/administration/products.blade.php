@@ -47,7 +47,7 @@
                             <td style="vertical-align: middle">{{ $cake->description }}</td>
                             <td style="vertical-align: middle">{{ $cake->price }}</td>
                             <td style="vertical-align: middle" class="last-admin-column">
-                                <a href="{{ route('cakeEdit', ['id' => $cake->id]) }}" class="btn btn-default waves-effect"><i class="material-icons">extension</i></a>
+                                <a href="{{ route('cake.edit', ['id' => $cake->id]) }}" class="btn btn-default waves-effect"><i class="material-icons">extension</i></a>
                                 <button class="deleteButton btn btn-default waves-effect" data-cake-id="{{ $cake->id }}"><i class="material-icons">delete</i></button>
                             </td>
                         </tr>
@@ -55,20 +55,20 @@
                 @endif
             </table>
         </div>
-        <a href="/cake/create" type="button" class="btn btn-primary waves-effect">
+        <a href="{{ route('cake.create') }}" type="button" class="btn btn-primary waves-effect">
             <i class="material-icons">add</i>
             <span>Добавить тортик</span>
         </a>
     </div>
 
-    @include ('cake.delete');
+    @include ('cake.delete')
 @endsection
 
 @section ('scripts')
     <script>
         $('.deleteButton').on('click', function () {
            var cakeId = $(this).data('cake-id');
-           $('#deleteCakeForm').attr('action', '/cake/' + cakeId);
+           $('#deleteCakeForm').attr('action', '/admin/cake/' + cakeId);
            $('#mdModal .modal-content').removeAttr('class').addClass('modal-content modal-col-red');
            $('#mdModal').modal('show');
         });

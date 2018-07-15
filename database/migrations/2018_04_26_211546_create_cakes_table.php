@@ -13,7 +13,7 @@ class CreateCakesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cake', function (Blueprint $table) {
+        Schema::create('cakes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('weight')->nullable();

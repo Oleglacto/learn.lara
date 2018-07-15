@@ -8,10 +8,15 @@ class Album extends Model
 {
     protected $table = 'albums';
 
-    protected $fillable = ['name', 'description', 'cover_image'];
+    protected $fillable = ['name', 'description', 'cover_image', 'cover_image_original'];
 
-    public function Photos()
+    public function photos()
     {
-        return $this->has_many('images');
+        return $this->hasMany('App\Models\Images');
+    }
+
+    public function cake()
+    {
+        return $this->belongsTo('App\Models\Cake');
     }
 }

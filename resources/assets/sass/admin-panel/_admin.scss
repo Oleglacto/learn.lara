@@ -1,0 +1,196 @@
+@import "components/inputFile";
+
+.flex-right{
+  display: flex;
+  margin-left: auto;
+  margin-right: 0;
+}
+.w214{
+  width: 214px;
+
+  button{
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    transition: background-color .3s;
+    &:first-child:hover{
+      background-color: $green-hover !important;
+    }
+    &:last-child:hover{
+      background-color: #F81202 !important;
+    }
+    span, i{
+      position: static !important;
+    }
+  }
+}
+.width-50p{
+  width: 50%;
+}
+.form-line::after{
+  border-color: #8BC34A !important;
+}
+.nav-tabs > li > a::before{
+  border-color: #8BC34A !important;
+}
+.form-group .form-line.focused .form-label{
+  color: black !important;
+}
+.category-select{
+  height: unset !important;
+  button{
+    padding-left: 0;
+    font-size: 18px !important;
+    color: #aaa;
+  }
+}
+
+.last-admin-column{
+  display: flex;
+  .deleteButton{
+    margin-left: 10px;
+  }
+}
+
+.select-fix{
+  > div {
+    height: 46px;
+  }
+  button{
+    height: 100%;
+    font-size: 17px !important;
+    padding-left: 0;
+    padding-right: 5px;
+    color: #555;
+  }
+}
+.form-line.error{
+
+  &:after{
+    border-color: #fb483a !important;
+  }
+}
+
+.form-group{
+  .error-message{
+    margin-top: 7px;
+    color: #fb483a;
+  }
+}
+
+
+.test{
+  display: block;
+  transition: right;
+}
+
+// albums
+
+.albums-row{
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+figure{
+  margin-bottom: 20px;
+}
+.image-wrapper{
+  position: relative;
+  display: block;
+
+  &:hover {
+    button{
+      opacity: 0.7;
+    }
+    figcaption {
+      opacity: 1;
+      transform: rotateY(0deg);
+      transition: transform 0.4s, opacity 0.1s;
+    }
+  }
+
+  button{
+    position: absolute;
+    bottom: 20px;
+    opacity: 0;
+    transform: translateX(-50%);
+    &.btn-edit{
+      left: calc(50% - 30px);
+    }
+
+    &.btn-delete{
+      padding: 7px 12px;
+      left: calc(50% + 30px);
+    }
+
+    &:hover{
+      opacity: 1;
+    }
+  }
+}
+
+
+.album-cover{
+  margin-bottom: 0;
+}
+.name{
+  display: block;
+  color: #0D0A0A;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+figcaption {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  bottom: 6px;
+  padding: 20px;
+  background: #2c3f52;
+  color: #8BC34A;
+  width: 50%;
+  opacity: 0;
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+  transform: rotateY(-90deg);
+  transition: transform 0.4s, opacity 0.1s 0.3s;
+}
+
+.modal-title{
+  font-size: 22px !important;
+}
+.modal-body{
+  padding: 15px 35px !important;
+}
+.modal .modal-header{
+  padding: 25px 35px 5px 35px !important;
+}
+
+.button-flex{
+  display: inline-flex !important;
+  align-items: center !important;
+  span, i{
+    position: static !important;
+  }
+
+  &:hover{
+    color: white !important;
+    background-color: $green-hover !important;
+  }
+}
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+.dropdown-menu{
+  margin-top: 0 !important;
+  top: 100%;
+  left: 96px;
+}
+.small-fixs{
+  top: 0 !important;
+}

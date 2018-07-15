@@ -17,13 +17,35 @@ Route::get('/logout', 'Auth\LoginController@destroy');
 // что-то тестовое
 Route::get('/second', 'SecondController@index');
 
-// Админка
-Route::get('/admin', 'AdministrationController@index');
-Route::get('/admin/products', 'AdministrationController@products');
 
-// Тортики
-Route::get('/admin/cake', 'CakeController@create')->name('cakeCreate');
-Route::post('/admin/cake', 'CakeController@store')->name('cakeSave');
-Route::get('/admin/cake/{cake}', 'CakeController@edit')->name('cakeEdit');
-Route::put('/admin/cake/{cake}', 'CakeController@update')->name('cakeUpdate');
-Route::delete('/admin/cake/{cake}', 'CakeController@destroy')->name('cakeDelete');
+Route::prefix('admin')->group(function () {
+
+    // Админка
+    Route::get('/', 'AdministrationController@index');
+    Route::get('/products', 'AdministrationController@products')->name('products');
+
+
+
+    Route::name('album.')->group(function () {
+        Route::post('/cake/{cake}/album', 'AlbumsController@store')->name('store');
+        Route::put('/cake/{cake}/album/{album}', 'AlbumsController@update')->name('update');
+        Route::delete('/albums/{album}', 'AlbumsController@destroy')->name('delete');
+        Route::get('/cake/{cake}/album/{album}', 'ImagesController@list')->name('show');
+    });
+    // Картинки
+    Route::post('/cake/{cake}/album/{album}', 'ImagesController@store')->name('image.store');
+
+    Route::name('cake.')->group(function () {
+        Route::get('/cake', 'CakeController@create')->name('create');
+        Route::post('/cake', 'CakeController@store')->name('save');
+        Route::get('/cake/{cake}', 'CakeController@edit')->name('edit');
+        Route::put('/cake/{cake}', 'CakeController@update')->name('update');
+        Route::delete('/cake/{cake}', 'CakeController@destroy')->name('delete');
+    });
+
+});
+
+
+
+
+

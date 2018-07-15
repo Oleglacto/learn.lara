@@ -1,4 +1,62 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);.flex-right {
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);.js .inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  max-width: 80%;
+  font-size: 16px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.625rem 1.25rem 0.625rem 0;
+  /* 10px 20px */
+}
+
+.no-js .inputfile + label {
+  display: none;
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile + label * {
+  /* pointer-events: none; */
+  /* in case of FastClick lib use */
+}
+
+.inputfile + label svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  margin-top: -0.25em;
+  /* 4px */
+  margin-right: 0.25em;
+  /* 4px */
+}
+
+.inputfile-3 + label {
+  color: #8BC34A;
+}
+
+.inputfile-3:focus + label,
+.inputfile-3.has-focus + label,
+.inputfile-3 + label:hover {
+  color: #4A9C2B;
+}
+
+.flex-right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8,6 +66,33 @@
 
 .w214 {
   width: 214px;
+}
+
+.w214 button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-transition: background-color .3s;
+  transition: background-color .3s;
+}
+
+.w214 button:first-child:hover {
+  background-color: #4A9C2B !important;
+}
+
+.w214 button:last-child:hover {
+  background-color: #F81202 !important;
+}
+
+.w214 button span,
+.w214 button i {
+  position: static !important;
 }
 
 .width-50p {
@@ -56,6 +141,140 @@
   padding-left: 0;
   padding-right: 5px;
   color: #555;
+}
+
+.form-line.error:after {
+  border-color: #fb483a !important;
+}
+
+.form-group .error-message {
+  margin-top: 7px;
+  color: #fb483a;
+}
+
+.test {
+  display: block;
+  -webkit-transition: right;
+  transition: right;
+}
+
+.albums-row {
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+figure {
+  margin-bottom: 20px;
+}
+
+.image-wrapper {
+  position: relative;
+  display: block;
+}
+
+.image-wrapper:hover button {
+  opacity: 0.7;
+}
+
+.image-wrapper:hover figcaption {
+  opacity: 1;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  -webkit-transition: opacity 0.1s, -webkit-transform 0.4s;
+  transition: opacity 0.1s, -webkit-transform 0.4s;
+  transition: transform 0.4s, opacity 0.1s;
+  transition: transform 0.4s, opacity 0.1s, -webkit-transform 0.4s;
+}
+
+.image-wrapper button {
+  position: absolute;
+  bottom: 20px;
+  opacity: 0;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.image-wrapper button.btn-edit {
+  left: calc(50% - 30px);
+}
+
+.image-wrapper button.btn-delete {
+  padding: 7px 12px;
+  left: calc(50% + 30px);
+}
+
+.image-wrapper button:hover {
+  opacity: 1;
+}
+
+.album-cover {
+  margin-bottom: 0;
+}
+
+.name {
+  display: block;
+  color: #0D0A0A;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+figcaption {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  bottom: 6px;
+  padding: 20px;
+  background: #2c3f52;
+  color: #8BC34A;
+  width: 50%;
+  opacity: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: rotateY(-90deg);
+          transform: rotateY(-90deg);
+  -webkit-transition: opacity 0.1s 0.3s, -webkit-transform 0.4s;
+  transition: opacity 0.1s 0.3s, -webkit-transform 0.4s;
+  transition: transform 0.4s, opacity 0.1s 0.3s;
+  transition: transform 0.4s, opacity 0.1s 0.3s, -webkit-transform 0.4s;
+}
+
+.modal-title {
+  font-size: 22px !important;
+}
+
+.modal-body {
+  padding: 15px 35px !important;
+}
+
+.modal .modal-header {
+  padding: 25px 35px 5px 35px !important;
+}
+
+.button-flex {
+  display: -webkit-inline-box !important;
+  display: -ms-inline-flexbox !important;
+  display: inline-flex !important;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+}
+
+.button-flex span,
+.button-flex i {
+  position: static !important;
+}
+
+.button-flex:hover {
+  color: white !important;
+  background-color: #4A9C2B !important;
 }
 
 .navbar-laravel {

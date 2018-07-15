@@ -11,4 +11,9 @@ class Cake extends Model
     ];
     //
     protected $table = 'cakes';
+
+    public function albums()
+    {
+        return $this->hasMany('App\Models\Album');
+    }
 }

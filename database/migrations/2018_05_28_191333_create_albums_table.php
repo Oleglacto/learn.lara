@@ -15,9 +15,11 @@ class CreateAlbumsTable extends Migration
     {
         Schema::create('albums', function (Blueprint $table) {
             $table->increments('id')->unsigned();
+            $table->integer('cake_id')->unsigned();
             $table->string('name');
             $table->text('description');
             $table->string('cover_image');
+            $table->string('cover_image_original');
             $table->timestamps();
         });
     }

@@ -1,4 +1,4 @@
-{{ Form::open(['route' => 'cakeSave', 'class' => 'form', 'id' => 'cakeForm']) }}
+{{ Form::open(['route' => 'cake.save', 'class' => 'form', 'id' => 'cakeForm']) }}
 
     @include('cake._form')
 

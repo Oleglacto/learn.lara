@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CakeRequest;
 use App\Models\Cake;
 use App\Models\Category;
-use Illuminate\Http\Request;
 
 class CakeController extends Controller
 {
@@ -12,7 +12,6 @@ class CakeController extends Controller
     {
         $category = Category::all();
         $categoryIdValue = [];
-
         foreach ($category as $item) {
             $categoryIdValue[$item->id] = $item->name;
         }
@@ -20,29 +19,26 @@ class CakeController extends Controller
         return view('administration.single-product', compact('category', 'categoryIdValue'));
     }
 
-    public function edit($id)
+    public function edit(Cake $cake)
     {
-        $cake = Cake::findOrFail($id);
         $category = Category::all();
-
         $categoryIdValue = [];
-
+        $albums = $cake->albums()->get()->all();
         foreach ($category as $item) {
             $categoryIdValue[$item->id] = $item->name;
         }
 
-        return view('administration.single-product', compact('cake', 'category', 'categoryIdValue'));
+        return view('administration.single-product', compact('cake', 'category', 'categoryIdValue', 'albums'));
     }
 
     /**
      * Созданин тортика
-     * @param Request $request
+     * @param CakeRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(CakeRequest $request)
     {
-        $cake = new Cake($request->all());
-        $cake->save();
+        Cake::create($request->all());
 
         return redirect('admin/products')->with([
             'flash_message' => 'Тортик успешнно добавлен :)'
@@ -50,22 +46,20 @@ class CakeController extends Controller
 
     }
 
-    public function update($id, Request $request)
+    public function update(CakeRequest $request, Cake $cake)
     {
-        $cake = Cake::find($id);
         $cake->update($request->all());
 
-        return redirect('admin/products')->with([
-            'flash_message' => 'Тортик успешно обновлен ^^_'
+        return back()->with([
+            'flash_message' => 'Тортик успешно обновлен ^_^'
         ]);
 
 
     }
 
 
-    public function destroy($id)
+    public function destroy(Cake $cake)
     {
-        $cake = Cake::find($id);
         $cake->delete();
 
         return redirect('admin/products')->with([
