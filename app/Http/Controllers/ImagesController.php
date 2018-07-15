@@ -23,7 +23,7 @@ class ImagesController extends Controller
     public function list(Cake $cake, Album $album)
     {
 
-        $images = $album->photos()->get()->all();
+        $images = $album->images()->get()->all();
         return view('gallery.list')->with(compact('images', 'album', 'cake'));
     }
 
