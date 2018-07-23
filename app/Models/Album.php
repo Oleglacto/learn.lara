@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\ImagesDelete;
 use Illuminate\Database\Eloquent\Model;
 
 class Album extends Model
@@ -19,4 +20,13 @@ class Album extends Model
     {
         return $this->belongsTo('App\Models\Cake');
     }
+
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'deleted' => ImagesDelete::class,
+    ];
 }

@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Jobs\DeleteAlbums;
 use App\Models\Cake;
-use Illuminate\Support\Facades\Log;
 
 class CakeDelete
 {
@@ -13,11 +12,11 @@ class CakeDelete
     public function __construct(Cake $cake)
     {
         $this->cake = $cake;
-        $this->deleteMedia();
+        $this->deleteAlbums();
     }
 
 
-    protected function deleteMedia() {
+    protected function deleteAlbums() {
 
         $albums = $this->cake->albums()->get()->all();
         foreach ($albums as $album) {
